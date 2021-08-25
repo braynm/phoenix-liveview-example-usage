@@ -6,6 +6,8 @@ defmodule LiveViewExampleUsageWeb.PageController do
   end
 
   def pagination(conn, _params) do
-    render(conn, "pagination.html")
+    conn
+    |> put_layout(false)
+    |> render("pagination.html")
   end
 end

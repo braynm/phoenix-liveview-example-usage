@@ -2,8 +2,8 @@ use Mix.Config
 
 # Configure your database
 config :live_view_example_usage, LiveViewExampleUsage.Repo,
-  username: "postgres",
-  password: "postgres",
+  username: "Bryan",
+  password: "",
   database: "live_view_example_usage_dev",
   hostname: "localhost",
   show_sensitive_data_on_connection_error: true,

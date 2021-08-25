@@ -17,6 +17,7 @@ defmodule LiveViewExampleUsageWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    get "/pagination", PageController, :pagination
   end
 
   # Other scopes may use custom stacks.
