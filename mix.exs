@@ -5,7 +5,7 @@ defmodule LiveViewExampleUsage.MixProject do
     [
       app: :live_view_example_usage,
       version: "0.1.0",
-      elixir: "~> 1.7",
+      elixir: "1.12.2",
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
