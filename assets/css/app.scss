@@ -1,36 +1,57 @@
-/* This file is for your main application css. */
-@import "./phoenix.css";
+@tailwind base;
 
-/* Alerts and form errors */
-.alert {
-  padding: 15px;
-  margin-bottom: 20px;
-  border: 1px solid transparent;
-  border-radius: 4px;
+@tailwind components;
+
+@tailwind utilities;
+
+.skeleton {
+  height: 92vh;
 }
-.alert-info {
-  color: #31708f;
-  background-color: #d9edf7;
-  border-color: #bce8f1;
+
+.photo-list {
+	display: grid;
+	grid-gap: 10px;
+	grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+	grid-auto-rows: 230px;
+	grid-auto-flow: dense;
 }
-.alert-warning {
-  color: #8a6d3b;
-  background-color: #fcf8e3;
-  border-color: #faebcc;
+
+.photo-list > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.alert-danger {
-  color: #a94442;
-  background-color: #f2dede;
-  border-color: #ebccd1;
+
+.photo-list > div > img {
+	width: 100%;
+	height: 100%;
+  object-fit: cover;
+	//object-fit: contain;
 }
-.alert p {
-  margin-bottom: 0;
+
+.photo-list img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+  //display: inline-block;
 }
-.alert:empty {
-  display: none;
+
+.photo-list .wide {
+	grid-column: span 2;
 }
-.invalid-feedback {
-  color: #a94442;
-  display: block;
-  margin: -1rem 0 2rem;
+.photo-list .tall {
+	grid-row: span 2;
 }
+.photo-list .taller {
+	grid-row: span 3;
+}
+
+.photo-list .big {
+	grid-column: span 2;
+	grid-row: span 2;
+}
+
+.empty-cover-container {
+  height: 80vh;
+}
+

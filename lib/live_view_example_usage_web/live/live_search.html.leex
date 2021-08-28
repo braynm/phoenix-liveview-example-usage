@@ -1,0 +1,18 @@
+      <form
+        class="flex relative items-center pt-4"
+        autocomplete="off"
+      >
+        <svg width="20" height="20" fill="currentColor" class="absolute left-3 transform text-purple-600">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" />
+        </svg>
+        <input
+          id="searchphoto"
+          autocomplete="false"
+          type="text"
+          aria-label="Search Photo"
+          placeholder="Search Photo"
+          class="focus:border-light-purple-500 focus:ring-1 focus:ring-light-purple-500 focus:outline-none w-full text-sm text-black placeholder-gray-500 border border-gray-200 rounded-md py-4 pl-10 text-xl"
+          phx-hook="SearchPhoto"
+          x-data="Search()"
+          x-on:input.debounce.700="searchPhoto($el.value)"  />
+      </form>

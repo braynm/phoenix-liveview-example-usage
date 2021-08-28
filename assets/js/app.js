@@ -1,15 +1,40 @@
-// We need to import the CSS so that webpack will load it.
-// The MiniCssExtractPlugin is used to separate it out into
-// its own CSS file.
+import {Socket} from "phoenix"
+import LiveSocket from "phoenix_live_view"
+import Alpine from "alpinejs"
+import intersect from "@alpinejs/intersect"
+
+// LiveView Hooks
+import Hooks from "./hooks"
+import Components from "./components"
+
+// Alphine global state
+import Store from "./store"
+
 import "../css/app.scss"
 
-// webpack automatically bundles all modules in your
-// entry points. Those entry points can be configured
-// in "webpack.config.js".
-//
-// Import deps with the dep name or local files with a relative path, for example:
-//
-//     import {Socket} from "phoenix"
-//     import socket from "./socket"
-//
 import "phoenix_html"
+
+const csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content")
+const params = {
+  params: {_csrf_token: csrfToken},
+  hooks: Hooks,
+  dom: {
+    onBeforeElUpdated(from, to){
+      if(from._x_dataStack){ window.Alpine.clone(from, to) }
+    }
+  }
+}
+
+const { search, list } = Components
+const liveSocket = new LiveSocket("/live", Socket, params)
+liveSocket.connect()
+
+window.Alpine = Alpine
+window.Hooks = Hooks
+window.Search = search
+window.List = list
+
+Alpine.plugin(intersect)
+Alpine.store('pagination', Store.Pagination)
+Alpine.start()
+
