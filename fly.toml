@@ -8,8 +8,8 @@ processes = []
 
 [env]
 
-[deploy]
-  release_command = "/app/bin/live_view_example_usage eval LiveViewExampleUsage.Release.migrate"
+#[deploy]
+  #release_command = "/app/bin/live_view_example_usage eval LiveViewExampleUsage.Release.migrate"
 
 [[services]]
   internal_port = 4000

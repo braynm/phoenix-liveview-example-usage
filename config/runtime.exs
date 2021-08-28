@@ -32,6 +32,5 @@ if config_env() == :prod do
   config :live_view_example_usage, LiveViewExampleUsage.Repo,
     url: database_url,
     # IMPORTANT: Or it won't find the DB server
-    socket_options: [:inet6],
     pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10")
 end
