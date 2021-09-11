@@ -40,7 +40,7 @@ config :live_view_example_usage, :unsplash_credentials,
 
 ## Live Demo (No pun intended)
 
-I deployed the [demo](https://dawn-forest-7320.fly.dev/pagination) to [fly.io](fly.io/). The deployment process is surprisingly easy.
+I deployed the [demo](https://dawn-forest-7320.fly.dev/pagination) to [fly.io](https://fly.io/). The deployment process is surprisingly easy.
 
 [Demo](https://dawn-forest-7320.fly.dev/pagination)
 
