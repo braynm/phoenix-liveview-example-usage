@@ -40,7 +40,7 @@ config :live_view_example_usage, :unsplash_credentials,
 
 ## Live Demo (No pun intended)
 
-[Demo](https://dawn-forest-7320.fly.dev/)
+[Demo](https://dawn-forest-7320.fly.dev/pagination)
 
 ## References
 
