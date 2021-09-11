@@ -33,6 +33,8 @@ if config_env() == :prod do
     url: database_url,
     pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10")
 
+  config :live_view_example_usage, :unsplash_api, LiveViewExampleUsage.Unsplash
+
   config :live_view_example_usage, :unsplash_credentials,
     client_id: System.get_env("UNSPLASH_CLIENT_ID"),
     client_secret: System.get_env("UNSPLASH_CLIENT_SECRET")
