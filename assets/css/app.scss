@@ -3,3 +3,68 @@
 @tailwind components;
 
 @tailwind utilities;
+
+.skeleton {
+  height: 92vh;
+}
+
+.photo-list {
+	display: grid;
+	grid-gap: 10px;
+	grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+	grid-auto-rows: 230px;
+	grid-auto-flow: dense;
+}
+
+.photo-list > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.photo-list > div > img {
+	width: 100%;
+	height: 100%;
+  object-fit: cover;
+	//object-fit: contain;
+}
+
+.photo-list img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+  //display: inline-block;
+}
+
+.photo-list .wide {
+	grid-column: span 2;
+}
+.photo-list .tall {
+	grid-row: span 2;
+}
+.photo-list .taller {
+	grid-row: span 3;
+}
+
+.photo-list .big {
+	grid-column: span 2;
+	grid-row: span 2;
+}
+
+.empty-cover-container {
+  height: 80vh;
+}
+
+#searchphoto:focus {
+  outline: none;
+  box-shadow: 3px 3px 0 #6D28D9;
+  color: #4C1D95;
+  border: 1px solid #6D28D9;
+}
+
+#searchphoto::selection, #searchphoto::-moz-selection {
+  background: #4C1D95;
+  color: #F5F3FF;
+}
+
+
