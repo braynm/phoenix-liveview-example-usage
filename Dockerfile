@@ -1,4 +1,4 @@
-# Using the Hex.pm docker images. You have much better version control for
+#"]d Using the Hex.pm docker images. You have much better version control for
 # Elixir, Erlang and Alpine.
 #
 #   - https://hub.docker.com/r/hexpm/elixir/tags
@@ -48,7 +48,7 @@ COPY assets assets
 # NOTE: If using TailwindCSS, it uses a special "purge" step and that requires
 # the code in `lib` to see what is being used. Uncomment that here before
 # running the npm deploy script if that's the case.
-# COPY lib lib
+COPY lib lib
 
 # build assets
 RUN npm run --prefix ./assets deploy
@@ -82,4 +82,4 @@ ENV MIX_ENV=prod
 ENV SECRET_KEY_BASE=nokey
 ENV PORT=4000
 
-CMD ["bin/live_view_example_usage", "start"]d
+CMD ["bin/live_view_example_usage", "start"]

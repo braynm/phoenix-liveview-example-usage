@@ -1,0 +1,63 @@
+
+   <div
+    x-data="List()"
+    @fetch-data.window="handleRequest()"
+    @request-finished.window="requestFinished($event.detail)"
+    @request-next-page.window="requestNextPage()"
+  >
+    <div
+      x-show="isRequestPending"
+      class="skeleton grid grid-cols-3 grid-rows-4 pt-8">
+        <template x-for="item in loadingItems(9)">
+          <div class="p-4 max-w-sm w-full mx-auto">
+            <div class="animate-pulse flex space-x-4">
+              <div class="flex-1 space-y-4 py-1">
+                <div class="h-4 bg-purple-400 rounded"></div>
+                <div class="space-y-2">
+                  <div class="h-4 bg-purple-400 rounded"></div>
+                  <div class="h-4 bg-purple-400 rounded"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </template>
+      </div>
+      <div
+        id="photos<%= @query %>"
+        class="pt-8 photo-list"
+        phx-update="append"
+        phx-hook="PhotoList"
+        x-show="!isEmpty()"
+        >
+        <%= for photo <- @photos do %>
+          <div id="item-<%= photo.id %>">
+            <canvas
+              id="canvas-<%= photo.id %>"
+              class="rounded-lg w-full h-full"
+              width="100%"
+              height="100%">
+            </canvas>
+            <img
+              x-transition
+              id="img-<%= photo.id %>"
+              class="hidden rounded-lg photo-item photo-<%= photo.id%>"
+              data-hash="<%= photo.blur_hash %>"
+              data-width="<%= photo.width %>"
+              data-height="<%= photo.height %>"
+              alt="<%= photo.description %>"
+            />
+          </div>
+        <%= end %>
+      </div>
+      <div x-show="isEmpty()" class="empty-cover-container flex flex-col justify-center items-center">
+        <div class="">
+          <img src="images/Happy Bunch - Astronaut.png" />
+        </div>
+        <div class="text-center">
+          <h2 class="text-2xl lg:text-4xl font-thin text-gray-500">
+            No result found for <span class="text-purple-600 text font-bold bg-purple-100" x-text="metadata.query"></span>
+          </h2>
+          <h2 class="text-md font-thin lg:text-xl mt-2 text-gray-400">Please try another keyword</h2>
+        </div>
+      </div>
+  </div>

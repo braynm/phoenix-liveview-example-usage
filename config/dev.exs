@@ -74,3 +74,11 @@ config :phoenix, :stacktrace_depth, 20
 
 # Initialize plugs at runtime for faster development compilation
 config :phoenix, :plug_init_mode, :runtime
+
+# config :live_view_example_usage, :unsplash_api, LiveViewExampleUsage.Unsplash.InMemory
+
+config :live_view_example_usage, :unsplash_credentials,
+  client_id: "",
+  client_secret: ""
+
+config :live_view_example_usage, :unsplash_api, LiveViewExampleUsage.Unsplash

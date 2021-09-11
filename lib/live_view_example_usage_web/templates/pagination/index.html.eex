@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>LiveView Example Usage - Pagination</title>
+    <%= csrf_meta_tag() %>
+    <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
+    <script defer type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
+  </head>
+  <body>
+    <div class="container mx-auto">
+      <%= live_render(@conn, LiveViewExampleUsageWeb.SearchLive.Index, session: %{"page_id" => @page_id}) %>
+      <%= live_render(@conn, LiveViewExampleUsageWeb.PhotoLive.Index, session: %{"page_id" => @page_id}) %>
+      <div
+        x-data="Pager()"
+        x-intersect="requestNextPage()"
+        x-show="!isResultEmpty"
+        @request-finished.window="handleSearchResult($event.detail)"
+      >
+      </div>
+  </body>
+</html>
+
