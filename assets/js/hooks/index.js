@@ -20,7 +20,6 @@ const Hooks = {
     mounted() {
       window.PhotoListHook = this
       this.handleEvent("fetch_result", (payload) => {
-        console.log({ fetch_result_metadata: payload })
         payload.photos.forEach(handleImg)
         dispatchEvent({ evtName: "request-finished", payload })
       })
@@ -29,7 +28,6 @@ const Hooks = {
       window.PhotoListHook = null
     },
     requestNextPage(payload) { 
-      console.log('received from PhotoList Hooks', { payload })
       this.pushEventTo(".photo-list", "next_page", payload)
     }
   },
