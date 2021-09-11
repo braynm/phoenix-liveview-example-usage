@@ -48,7 +48,7 @@ COPY assets assets
 # NOTE: If using TailwindCSS, it uses a special "purge" step and that requires
 # the code in `lib` to see what is being used. Uncomment that here before
 # running the npm deploy script if that's the case.
-# COPY lib lib
+COPY lib lib
 
 # build assets
 RUN npm run --prefix ./assets deploy
