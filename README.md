@@ -40,6 +40,8 @@ config :live_view_example_usage, :unsplash_credentials,
 
 ## Live Demo (No pun intended)
 
+I deployed the [demo](https://dawn-forest-7320.fly.dev/pagination) to [fly.io](fly.io/). The deployment process is surprisingly easy.
+
 [Demo](https://dawn-forest-7320.fly.dev/pagination)
 
 ## References
@@ -48,3 +50,10 @@ config :live_view_example_usage, :unsplash_credentials,
   * [ElixirConf 2020 - Patrick Thompson - Liven up your LiveViews (even further) with AlpineJS](https://www.youtube.com/watch?v=Dv64_tGJhHo)
   * [Adding Tailwind CSS to Phoenix 1.4 and 1.5](https://pragmaticstudio.com/tutorials/adding-tailwind-css-to-phoenix)
   * [Communicating between LiveViews on the same page](https://thepugautomatic.com/2020/08/communicating-between-liveviews-on-the-same-page/)
+  * [Building a Distributed Turn-Based Game System in Elixir](https://fly.io/blog/building-a-distributed-turn-based-game-system-in-elixir/)
+
+## Credits
+  * Happy\ Bunch\ -\ Astronaut.png image is from [blush.design](https://blush.design/) check it out! they have awesome illustrations!
+
+## TODO
+  * Upgrade to [Phoenix 1.6](https://www.phoenixframework.org/blog/phoenix-1.6-released)
