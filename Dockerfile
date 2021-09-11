@@ -1,4 +1,4 @@
-# Using the Hex.pm docker images. You have much better version control for
+#"]d Using the Hex.pm docker images. You have much better version control for
 # Elixir, Erlang and Alpine.
 #
 #   - https://hub.docker.com/r/hexpm/elixir/tags
@@ -82,4 +82,4 @@ ENV MIX_ENV=prod
 ENV SECRET_KEY_BASE=nokey
 ENV PORT=4000
 
-CMD ["bin/live_view_example_usage", "start"]d
+CMD ["bin/live_view_example_usage", "start"]
