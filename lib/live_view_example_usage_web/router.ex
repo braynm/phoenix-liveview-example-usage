@@ -20,8 +20,11 @@ defmodule LiveViewExampleUsageWeb.Router do
 
     get "/", PageController, :index
     get "/pagination", PaginationController, :index
-    # live "/todo", TodoLive
-    # live "/pagination", LiveSearch.Index
+    get "/chat/login", ChatController, :login
+    get "/chat/login_session", ChatController, :login_session
+    get "/chat/logout", ChatController, :logout
+
+    live "/chat", ChatLive, layout: {LiveViewExampleUsageWeb.LayoutView, "app.html"}
   end
 
   # Other scopes may use custom stacks.

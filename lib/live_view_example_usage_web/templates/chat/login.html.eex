@@ -1,0 +1,28 @@
+<body class="mx-auto container w-full md:w-10/12 lg:w-6/12">
+  <div class="login-container flex flex-col mt-24">
+    <div class="login-card flex bg-gray-50 border mx-10 rounded-lg">
+      <div class="w-1/2 hidden md:flex md:flex-col md:items-center py-5 border-r">
+        <img src="<%= Routes.static_path(@conn, "/images/Brazuca - Browsing.png") %>" />
+        <h2 class="font-semibold text-lg text-purple-500 text-center">Chat now.</h2>
+      </div>
+      <div class="w-full md:w-1/2 flex flex-col justify-center px-10 py-10 md:py-0">
+        <div class="mb-5 text-gray-500 flex items-center">
+          <svg class="w-6 h-6" class="text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+          <h2 class="font-extrabold text-2xl text-gray-500 ml-2">Login as:</h2>
+        </div>
+        <ul class="text-gray-500">
+          <%= for user <- @users do %>
+          <li class="border-b">
+            <div class="flex cursor-pointer my-1 hover:bg-purple-800 hover:text-purple-50 rounded">
+              <div class="flex items-center w-4/5 h-10 py-3 px-1">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                <a href="/chat/login_session?user=<%= user.username %>" class=""><%= user.name %></a>
+              </div>
+            </div>
+          </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
