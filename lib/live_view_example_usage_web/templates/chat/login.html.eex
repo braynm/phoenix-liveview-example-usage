@@ -1,4 +1,4 @@
-<body class="mx-auto container w-full md:w-10/12 lg:w-6/12">
+<div class="mx-auto container w-full md:w-10/12 lg:w-6/12">
   <div class="login-container flex flex-col mt-24">
     <div class="login-card flex bg-gray-50 border mx-10 rounded-lg">
       <div class="w-1/2 hidden md:flex md:flex-col md:items-center py-5 border-r">
@@ -25,4 +25,4 @@
       </div>
     </div>
   </div>
-</body>
+</div>
