@@ -1,7 +1,7 @@
 defmodule LiveViewExampleUsageWeb.ChatController do
   use LiveViewExampleUsageWeb, :controller
 
-  def login(conn, params) do
+  def login(conn, _params) do
     users = LiveViewExampleUsage.Chat.user_list()
 
     conn

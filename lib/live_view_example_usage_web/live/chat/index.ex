@@ -2,7 +2,7 @@ defmodule LiveViewExampleUsageWeb.ChatLive do
   use Phoenix.LiveView
   alias LiveViewExampleUsageWeb.Presence
 
-  def mount(params, session, socket) do
+  def mount(_params, session, socket) do
     socket = redirect_to_login(session["user"], socket)
 
     if connected?(socket) do
@@ -49,7 +49,7 @@ defmodule LiveViewExampleUsageWeb.ChatLive do
     socket =
       if user !== nil && user !== socket.assigns.user do
         chats = update_chat_list_online_status(topic, socket.assigns.chats, false)
-        socket = assign(socket, chats: chats)
+        assign(socket, chats: chats)
       else
         socket
       end
@@ -63,7 +63,7 @@ defmodule LiveViewExampleUsageWeb.ChatLive do
     socket =
       if user !== nil && user !== socket.assigns.user do
         chats = update_chat_list_online_status(topic, socket.assigns.chats, true)
-        socket = assign(socket, chats: chats)
+        assign(socket, chats: chats)
       else
         socket
       end
@@ -72,12 +72,6 @@ defmodule LiveViewExampleUsageWeb.ChatLive do
   end
 
   def handle_info({:send_message_to_other, payload}, socket) do
-    message = %{
-      "message" => payload["value"],
-      "chat" => payload["chat"],
-      "user" => socket.assigns.user
-    }
-
     socket =
       socket
       |> push_event("new_message", payload)
@@ -145,7 +139,7 @@ defmodule LiveViewExampleUsageWeb.ChatLive do
   end
 
   defp redirect_to_login(nil, socket), do: redirect(socket, to: "/chat/login")
-  defp redirect_to_login(user, socket), do: socket
+  defp redirect_to_login(_user, socket), do: socket
 
   defp update_chat_list_online_status(topic, chats, value) do
     Enum.map(
