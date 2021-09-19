@@ -25,7 +25,7 @@ const params = {
   }
 }
 
-const { search, list, pager } = Components
+const { search, list, pager, chat } = Components
 const liveSocket = new LiveSocket("/live", Socket, params)
 liveSocket.connect()
 
@@ -34,6 +34,7 @@ window.Hooks = Hooks
 window.Search = search
 window.List = list
 window.Pager = pager
+window.Chat = chat
 
 Alpine.plugin(intersect)
 Alpine.store('pagination', Store.Pagination)

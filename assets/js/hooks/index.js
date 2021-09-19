@@ -38,6 +38,17 @@ const Hooks = {
     requestNextPage() {
 
     }
+  },
+  Chat: {
+    mounted() {
+      window.ChatHook = this
+      this.handleEvent("new_message", (payload) => {
+        dispatchEvent({ evtName: "new-message", payload })
+      })
+    },
+    sendMessage(payload) {
+      this.pushEventTo("#chat", "send_message", payload)
+    }
   }
 }
 

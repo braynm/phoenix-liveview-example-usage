@@ -1,8 +1,9 @@
 defmodule LiveViewExampleUsageWeb.PhotoLive.Index do
   use Phoenix.LiveView
-  alias LiveViewExampleUsage.Unsplash.SearchPhoto
 
-  def mount(_params, %{"page_id" => page_id}, socket) do
+  @default_update_action "replace"
+
+  def mount(_params, _, socket) do
     socket =
       socket
       |> assign(fetching_photo: true)
@@ -42,7 +43,7 @@ defmodule LiveViewExampleUsageWeb.PhotoLive.Index do
     {:noreply, socket}
   end
 
-  def handle_event("next_page", %{"query" => query, "page" => page} = params, socket) do
+  def handle_event("next_page", %{"query" => query, "page" => page}, socket) do
     unsplash_client = LiveViewExampleUsage.unsplash_client()
 
     query_params = [

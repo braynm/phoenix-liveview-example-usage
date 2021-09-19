@@ -9,7 +9,7 @@ defmodule LiveViewExampleUsage.Unsplash.InMemory do
     {:ok, {[], metadata}}
   end
 
-  def search_photo(params) do
+  def search_photo(_) do
     %{"results" => photos} = photos()
 
     metadata = %{total_pages: 2}
@@ -26,7 +26,7 @@ defmodule LiveViewExampleUsage.Unsplash.InMemory do
     Enum.map(photo_items, &extract_item/1)
   end
 
-  defp duplicate_collection(photos, count \\ 5) do
+  defp duplicate_collection(photos, count) do
     photos
     |> List.duplicate(count)
     |> List.flatten()
@@ -35,7 +35,7 @@ defmodule LiveViewExampleUsage.Unsplash.InMemory do
 
   defp extract_item(item) do
     %{
-      id: random_id,
+      id: random_id(),
       url: item["urls"]["small"],
       description: item["description"],
       blur_hash: item["blur_hash"],
@@ -48,7 +48,7 @@ defmodule LiveViewExampleUsage.Unsplash.InMemory do
     %{item | id: random_id()}
   end
 
-  defp random_id, do: s = for(_ <- 1..10, into: "", do: <<Enum.random('0123456789abcdef')>>)
+  defp random_id, do: _s = for(_ <- 1..10, into: "", do: <<Enum.random('0123456789abcdef')>>)
 
   # NOTE: this should only be used in dev environment
   def photos do

@@ -33,9 +33,13 @@ config :live_view_example_usage, :unsplash_credentials,
 
 ![Pagination Example](https://raw.githubusercontent.com/braynm/phoenix-liveview-example-usage/master/pagination.gif)
 
+### [Chat](https://dawn-forest-7320.fly.dev/chat)
+
+![Chat Example](https://raw.githubusercontent.com/braynm/phoenix-liveview-example-usage/master/chat.gif)
+
 ## Example Usage
   * Pagination (Infinite Scroll)
-  * Chat (WIP)
+  * Chat
   * OTP Login (WIP)
 
 ## Live Demo (No pun intended)

@@ -13,6 +13,7 @@ defmodule LiveViewExampleUsage.Application do
       LiveViewExampleUsageWeb.Telemetry,
       # Start the PubSub system
       {Phoenix.PubSub, name: LiveViewExampleUsage.PubSub},
+      LiveViewExampleUsageWeb.Presence,
       # Start the Endpoint (http/https)
       LiveViewExampleUsageWeb.Endpoint
       # Start a worker by calling: LiveViewExampleUsage.Worker.start_link(arg)

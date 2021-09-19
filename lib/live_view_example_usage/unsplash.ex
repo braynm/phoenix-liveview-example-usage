@@ -14,7 +14,7 @@ defmodule LiveViewExampleUsage.Unsplash do
   Retrieve photos from Unsplash API
   """
   # def search_photos(query) do
-  def search_photo(query: query, page: page, per_page: per_page = params) do
+  def search_photo(query: query, page: page, per_page: per_page) do
     case get("/search/photos?query=#{URI.encode(query)}&per_page=#{per_page}&page=#{page}") do
       {:ok, %Tesla.Env{status: 200, body: response}} ->
         {:ok, {extract_list(response["results"]), %{"total_pages" => response["total_pages"]}}}
@@ -39,7 +39,7 @@ defmodule LiveViewExampleUsage.Unsplash do
     end)
   end
 
-  defp extract_items(_), do: []
+  defp extract_list(_), do: []
 
   def client_id do
     Application.get_env(:live_view_example_usage, :unsplash_credentials)[:client_id]
